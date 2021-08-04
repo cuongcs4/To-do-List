@@ -9,12 +9,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background-image: linear-gradient(to right bottom, #005aa7, #fffde4);
+  background-attachment: fixed;
+  color: #354538;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 .App {
+  background: white; 
+  border-radius: 30px; 
   max-width: 500px;
   width: 100%;
   min-height: 400px;
@@ -63,33 +71,41 @@ ul li {
   justify-content: space-between;
   align-items: center;
   text-transform: capitalize;
+  border-radius: 5px;
 }
 
+ul .active {
+  background-color: rgb(213, 217, 221);
+}
+
+
 ul li .active {
-  opacity: 0.5;
+  opacity: 0.2;
   text-decoration: line-through;
 }
+
 
 
 ul li button {
  border: none;
  outline: none;
  color: white;
- background: orange;
+ background-image: linear-gradient(to right bottom, #005aa7, #fffde4);
  border-radius: 5px;
  padding: 5px 15px;
  cursor: pointer;
  margin-right: 5px;
 }
 
+
 ul li .Edit:disabled {
-  opacity: 0.5;
+  opacity: 0.2;
   cursor: not-allowed;
 }
 
 
 ul li .Delete{
-  background: red;
+  background-image: linear-gradient(to right bottom, #fffde4, #dd7e46);
 }
 
 .row {
@@ -103,7 +119,7 @@ ul li .Delete{
   border: none;
  outline: none;
  color: white;
- background: red;
+ background: #dd7e46;
  border-radius: 5px;
  padding: 5px 15px;
  cursor: pointer;

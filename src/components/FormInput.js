@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import { addTaskAPI, getAllTaskAPI } from 'service/task.service'
 import { DataContext } from './DataProvider'
 
 
@@ -6,14 +7,29 @@ const FormInput = () => {
     const [todos, setTodos] = useContext(DataContext)
     const [todoName, setTodoName] = useState('')
     const todoInput = useRef()
+    const addTask = async (description) => {
+        await addTaskAPI(description);
+    };
 
-    const addTodo = e => {
+    const getAllTask = async () => {
+        const {
+            data: { data }
+        } = await getAllTaskAPI();
+        if (data.length > 0) {
+            const mapData = data.map((todo) => ({ ...todo, id: todo._id }));
+            setTodos(mapData);
+        }
+    };
+    
+    const addTodo = async e => {
         e.preventDefault()
-        setTodos([...todos, { id: Math.floor(Math.random() * 10000), name: todoName, complete: false }])
+        await addTask(todoName)
+        getAllTask()
         setTodoName('')
         todoInput.current.focus()
     }
 
+    
     useEffect(() => {
         todoInput.current.focus()
     })
