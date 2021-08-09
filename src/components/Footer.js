@@ -51,7 +51,7 @@ const Footer = () => {
       {todos.length === 0 ? (
         <h2>Congratulations! Nothings to do</h2>
       ) : (
-        <div className="row">
+        <div className="footer-wrapper">
           <label htmlFor="all">
             <input
               type="checkbox"

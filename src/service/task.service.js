@@ -1,4 +1,4 @@
-import fetcher from "./index.js";
+import { fetcher } from './index'
 
 export const getAllTaskAPI = async () => {
   return await fetcher({
@@ -8,11 +8,11 @@ export const getAllTaskAPI = async () => {
     .catch((err) => console.log(err));
 };
 
-export const updateTaskByIdAPI = async ({id,completed})=>{
+export const updateTaskByIdAPI = async ({ id, completed }) => {
   return await fetcher({
-    url:`task/${id}`,
-    method:'PUT',
-    data:{
+    url: `task/${id}`,
+    method: 'PUT',
+    data: {
       completed
     }
   })
@@ -20,19 +20,22 @@ export const updateTaskByIdAPI = async ({id,completed})=>{
 
 export const deleteTaskByIdAPI = async (id) => {
   return await fetcher({
-    url:`task/${id}`,
-    method:'DELETE'
+    url: `task/${id}`,
+    method: 'DELETE'
   })
 }
 
 export const addTaskAPI = async (description) => {
   return await fetcher({
-    url:'task',
-    method:'POST',
+    url: 'task',
+    method: 'POST',
     data: {
       description
     }
   })
+}
+
+export const loginAPI = async (email, password) => {
 }
 
 

@@ -35,14 +35,14 @@ const FormInput = () => {
     })
 
     return (
-        <div>
-            <form autoComplete="off" onSubmit={addTodo}>
-                <input type="text" name="todos" id='todos'
+        <div className='form-wrapper'>
+            <form className='form-body' autoComplete="off" onSubmit={addTodo}>
+                <input className='form-body__create' type="text" name="todos" id='todos'
                     ref={todoInput}
                     required placeholder='What needs to be done?'
                     value={todoName}
                     onChange={e => setTodoName(e.target.value.toLowerCase())} />
-                <button type='submit'>Create</button>
+                <button className='form-body__submit' type='submit'>Create</button>
             </form>
         </div>
     )

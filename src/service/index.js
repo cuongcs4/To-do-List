@@ -1,20 +1,61 @@
 import axios from "axios";
-// uar chua cai axios a
-// :V 
-// clm cai di thg lone :v k can huy
-// split terminal ra
-// nos goi y :v,
-// a co r ma wtf
-// thì import có mà dkm
-// wwtf
 const baseURL = 'https://api-nodejs-todolist.herokuapp.com/';
 
-const createClient = (baseURL) => {
+
+
+export const getToken = async (email, password) => {
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    url: 'https://api-nodejs-todolist.herokuapp.com/user/login',
+    data: {
+      email,
+      password
+    }
+  }
+  const data = await axios(options).then(res => res).catch(error => error.response)
+  const accessToken = data.data.token
+  if (accessToken)
+    sessionStorage.setItem("tdl-token", accessToken)
+  return data
+}
+
+export const signup = async (info) => {
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    url: 'https://api-nodejs-todolist.herokuapp.com/user/register',
+    data: {
+      name: info.name,
+      email: info.email,
+      password: info.password,
+      age: info.age
+    }
+  }
+  const data = await axios(options)
+    .then(res => res)
+    .catch(error => error.response)
+  const accessToken = data.data.token
+  if (accessToken)
+    sessionStorage.setItem("tdl-token", accessToken)
+  return data
+  // if (data) {
+  //   const accessToken = data.data.token
+  //   sessionStorage.setItem("tdl-token", accessToken)
+  // }
+}
+
+export const createClient = () => {
+  const accessToken = sessionStorage.getItem('tdl-token')
   return axios.create({
     baseURL,
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTA3ZGI0MDM4ZTdhNzAwMTcyMmE5NjAiLCJpYXQiOjE2Mjc5MDQ4MzJ9.voZzDJElzFQu_uW9dyvuHR-0250p3dOHuuSYxdydtvc`
+      Authorization: `Bearer ${accessToken} `
     },
   });
 };
@@ -22,8 +63,6 @@ const createClient = (baseURL) => {
 export const fetcher = (options) => {
   const onSuccess = response => response;
   const onError = error => Promise.reject(error.response || error.message);
-  const client = createClient(baseURL);
+  const client = createClient();
   return client(options).then(onSuccess).catch(onError);
 }
-
-export default fetcher;

@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
+.login-wrapper,
+.signup-wrapper {
+ max-width: 600px;
+ margin: 0 auto;
+ padding-bottom: 80px;
+ min-height: 400px;
+ text-align: center;
+
+ h1 {
+  font-size: 40px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-put;
+  font-weight: 200;
+ }
+}
+.login,
+.signup {
+ form {
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+
+  input {
+   outline: 0;
+   border: 2px solid white;
+   background-color: rgba(255, 255, 255, 0.5);
+   width: 300px;
+   border-radius: 3px;
+   padding: 10px 15px;
+   margin: 0 auto 10px auto;
+   display: block;
+   text-align: center;
+   font-size: 18px;
+
+   color: #c4377d;
+
+   transition-duration: 0.25s;
+   font-weight: 400;
+
+   &:hover {
+    border: 2px solid rgb(199, 221, 243);
+    background-color: rgba(255, 255, 255);
+   }
+
+   &:focus {
+    background-color: white;
+    width: 350px;
+
+    color: #c4377d;
+   }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+  }
+
+  button {
+   outline: 0;
+   background-color: skyblue;
+   border: 0;
+   padding: 10px 15px;
+   color: #c4377d;
+   border-radius: 3px;
+   width: 130px;
+   cursor: pointer;
+   font-size: 18px;
+   transition-duration: 0.25s;
+  }
+
+  button:hover {
+   background-color: rgb(245, 247, 249);
+  }
+ }
+ &__form__age {
+  width: 100px !important;
+ }
+}

@@ -1,7 +1,7 @@
 import React, { useContext, useCallback } from "react";
 import ListItem from "./ListItem";
 import { DataContext } from "./DataProvider";
-import { updateTaskByIdAPI} from "service/task.service";
+import { updateTaskByIdAPI } from "service/task.service";
 
 const List = () => {
     const [todos, setTodos] = useContext(DataContext);
@@ -55,17 +55,19 @@ const List = () => {
         setTodos(newTodos);
     };
     return (
-        <ul>
-            {todos.map((todo, index) => (
-                <ListItem
-                    todo={todo}
-                    key={index}
-                    id={todo.id}
-                    checkComplete={switchComplete}
-                    handleEditTodos={handleEditTodos}
-                />
-            ))}
-        </ul>
+        <div className='list-wrapper'>
+            <ul className='list-body'>
+                {todos.map((todo, index) => (
+                    <ListItem
+                        todo={todo}
+                        key={index}
+                        id={todo.id}
+                        checkComplete={switchComplete}
+                        handleEditTodos={handleEditTodos}
+                    />
+                ))}
+            </ul>
+        </div>
     );
 };
 

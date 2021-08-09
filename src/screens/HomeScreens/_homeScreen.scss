@@ -1,0 +1,114 @@
+.homescreen {
+
+ h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  color: #666;
+ }
+
+ form {
+  width: 100%;
+  height: 40px;
+  margin: 20px 0;
+  display: flex;
+
+  input,
+  button {
+   flex: 3;
+   border: none;
+   outline: none;
+   border-bottom: 1px solid #555;
+   margin: 0 5px;
+  }
+  button {
+   flex: 1;
+   background: #555;
+   color: white;
+   letter-spacing: 2px;
+   cursor: pointer;
+  }
+ }
+
+ ul {
+  li {
+   list-style: none;
+   border: 1px solid #ccc;
+   margin: 10px 0;
+   padding: 10px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   text-transform: capitalize;
+   border-radius: 5px;
+
+   .active {
+    opacity: 0.2;
+    text-decoration: line-through;
+   }
+  }
+  .active {
+   background-color: rgb(213, 217, 221);
+  }
+  button {
+   border: none;
+   outline: none;
+   color: white;
+   background-image: linear-gradient(to right bottom, #005aa7, #fffde4);
+   border-radius: 5px;
+   padding: 5px 15px;
+   cursor: pointer;
+   margin-right: 5px;
+  }
+
+  .Edit:disabled {
+   opacity: 0.2;
+   cursor: not-allowed;
+  }
+  .Delete {
+   background-image: linear-gradient(to right bottom, #fffde4, #dd7e46);
+  }
+ }
+
+ .footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  button {
+   border: none;
+   outline: none;
+   color: white;
+   background: #dd7e46;
+   border-radius: 5px;
+   padding: 5px 15px;
+   cursor: pointer;
+   margin-right: 5px;
+  }
+
+  label {
+   cursor: pointer;
+  }
+ }
+}
+
+.row {
+    margin-top: 100px;
+    text-align: end;
+
+    button {
+        width: 80px;
+        height: 30px;
+        color: red;
+        background-color: #666;
+        border-radius: 5px;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+    
